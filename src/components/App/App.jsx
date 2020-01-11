@@ -65,7 +65,8 @@ export default class App extends Component {
       item => item.id === Number(id),
     );
     this.openModal();
-    this.setState({ linkLargeImage: currentItemImage.largeImage });
+    const { largeImage } = currentItemImage;
+    this.setState({ linkLargeImage: largeImage });
   };
 
   render() {
@@ -85,7 +86,7 @@ export default class App extends Component {
           <Gallery
             images={images}
             loadMore={this.fetchImages}
-            onClick={this.linkBigImage}
+            linkBigImage={this.linkBigImage}
           />
         )}
         {isModalOpen && (

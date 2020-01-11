@@ -15,8 +15,15 @@ export default class SearchForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.state.query);
-    this.setState({ query: '' });
+    this.reset();
   };
+
+  reset = () => {
+    this.setState({
+      query: '',
+    });
+  };
+
   render() {
     return (
       <div className={styles.Searchbar}>
